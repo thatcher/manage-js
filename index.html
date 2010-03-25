@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>MyProject</title>
+        
+        
+        <!--
+        /**
+         * Print Stylesheets
+         */
+        -->
+        <link   type="text/css"  href="/css/blueprint/print.css" 
+                rel="stylesheet" media="print"/>
+        <!--
+        /**
+         * Screen Stylesheets
+         */
+        -->     
+        <link   type="text/css"  href="/css/blueprint/screen.css"   
+                rel="stylesheet" media="screen, projection" />
+        <link   type="text/css"  href="/css/sprite.css"   
+                rel="stylesheet" media="screen, projection"/>
+        <link   type="text/css"  href="/css/site.css" 
+                rel="stylesheet" media="screen, projection"/>
+        <link   type="text/css"  href="/css/manage.css" 
+                rel="stylesheet" media="screen, projection"/>
+        
+        
+        <!--
+        /**
+         * Quirks Mode Stylesheets
+         */
+        -->             
+        <!--[if lt IE 8]>
+        <link   href="/css/blueprint/ie.css"
+                type="text/css" 
+                media="screen, projection"
+                rel="stylesheet" />
+         <![endif]-->
+     
+        <script type='text/javascript' src='/lib/jquery.js'></script>
+        <script type='text/JavaScript' src='/lib/jquery.livequery.js'></script>
+        <script type='text/javascript' src='/lib/jquery.claypool.js'></script>
+        <script type='text/javascript' src='/plugins/jquery.jspath.js'></script>
+        <script type='text/javascript' src='/plugins/jquery.json.js'></script>
+        <script type='text/javascript' src='/plugins/jquery.objtree.js'></script>
+        <script type='text/envjs'      src='/plugins/jquery.gdb.js'></script>
+        <script type='text/envjs'      src='/plugins/jquery.gdb.rest.js'></script>
+        <script type='text/javascript' src='/plugins/jquery.loremipsum.js'></script>
+        
+        <script type='text/javascript' src='/app/configs/config.js'></script>
+        <script type='text/javascript' src='/app/configs/environments.js'></script>
+        <script type='text/javascript' src='/app/configs/filters.js'></script>
+        <script type='text/javascript' src='/app/configs/logging.js'></script>
+        <script type='text/javascript' src='/app/configs/routes.js'></script>
+        
+        <script type='text/javascript' src='/app/controllers/manage.js'></script>
+        <script type='text/javascript' src='/app/controllers/site.js'></script>
+        <script type='text/javascript' src='/app/models/items.js'></script>
+        <script type='text/javascript' src='/app/views/manage.js'></script>
+        <script type='text/javascript' src='/app/views/site.js'></script>
+        <script type='text/envjs'      src='/app/services/manage.js'></script>
+        <script type='text/envjs'      src='/app/services/site.js'></script>
+        
+        <!-- (; tm ;) -->
+        <script type='text/JavaScript' src='/app/boot/client.js'></script>
+        <script type='text/envjs'      src='/app/boot/server.js'></script>
+        
+        <script type='text/JavaScript' src='/scripts/commands.js'></script>
+       
+	</head>
+	<body id='site'>
+        <!--
+        /**
+         * Header
+         */
+        -->
+        <div id='header' class="container">
+            <div class="column span-7 first">
+                <a href='/'>
+                    <img    src="/images/icon-green.png"
+                            alt="MyProject" 
+                            height='80px'/>
+                </a> 
+            </div> 
+            <div class="column span-15 prepend-top last" id='global-nav' >
+                <ul>
+                    <li><a id='_manage' href="#manage">manage</a></li> |&nbsp;
+                    <li><a id='_items' href="#items">items</a></li> 
+                </ul>
+            </div>
+        </div>
+        
+        <!--
+        /**
+         * Main Content
+         */
+        -->
+        <div id='main' class="container">
+            <!-- /**
+               main layout extension point
+            */ -->
+            <p id='status' 
+               style='display:none;float:left;margin:-65px 0 0 6px;'>
+                <img src='/images/ajax-loader-blocks.gif'/>
+                <span class='message'>status</span>
+            </p>
+            
+            <div id='manage'>
+                <h2>Manage</h2>
+                <div class='first column span-11 colborder ' 
+                     style='text-align:right;'>
+                     <ul>
+                         <li><h3><a id='_help' href='#manage/help'>help</a></h3></li>
+                         <li><h3><a id='_load' href='#manage/load'>load</a></h3></li>
+                         <li><h3><a id='_reset' href='#manage/reset'>reset</a></h3></li>
+                     </ul>
+                </div>
+                <div class='last column span-11'>
+                     <ul>
+                         <li><h3><a id='_syncdb' href='#manage/syncdb'>syncdb</a></h3></li>
+                         <li><h3> <a id='_dumpdata' href='/manage/dumpdata'>dumpdata</a></h3></li>
+                     </ul>
+                </div>
+                <div class='span-14 push-5' style='display:none'>
+                    <iframe id='dump' 
+                        scrolling="no"  
+                        width='100%'>
+                    </iframe>
+                </div>
+            </div>
+            
+            <div id='items' style='display:none;'>
+                <h2>Items</h2>
+                <div class='first column span-7 colborder'>
+                     <ul>
+                         <li id='items_template'><a href='#item/'></a></li>
+                     </ul>
+                </div>
+                <div class='column span-7 colborder'>
+                     <ul></ul>
+                </div>
+                <div class='last column span-7' >
+                     <ul></ul>
+                </div>
+            </div>
+            
+            <div id='item' style='display:none;'>
+                <h2>Item</h2>
+                <div class='first column span-16 push-3' >
+                     <form  id='item_template' 
+                            method='post' action='/edit/items/id'>
+                        <input class='submit' 
+                            type='submit' value='save'/>
+                        <fieldset>
+                            <legend id='item_id'></legend>
+                            <label for='item_image'
+                                class='ss_sprite  ss_help' 
+                                title='Please provide an absolute url.'/>
+                                Image
+                            </label>
+                            <input id='item_image' type='text' value=''/>
+                            <br/>
+                            <label for='item_title'>Title</label>
+                            <input id='item_title' type='text' value=''/>
+                            <br/>
+                            <label for='item_deleted'>Deleted</label>
+                            <input id='item_deleted' type='text' value=''/>
+                            <br/>
+                            <label for='item_description'>Description</label>
+                            <textarea id='item_description' 
+                                class='description'></textarea>
+                            <br/>
+                            <label for='item_resources'>Resources</label>
+                            <textarea id='item_resources'></textarea>
+                            <br/>
+                            <label for='item_collections'>Collections</label>
+                            <textarea id='item_collections'></textarea>
+                            <br/>
+                            <label for='item_tags'>Tags</label>
+                            <textarea id='item_tags'></textarea>
+                            <br/>
+                            <label for='item_notes'>Notes</label>
+                            <textarea id='item_notes'
+                                class='notes'></textarea>
+                        </fieldset>
+                     </form>
+                </div>
+            </div>
+        </div>   
+            
+        <!--
+        /**
+         * Footer
+         */
+        -->
+        <div id="footer" 
+             class="container">
+            <div class="column span-23 last">
+                <div id='copyright' style='text-align:center;'>
+                    <img id="claypool-logo" 
+                         src="/images/claypool-button.png"
+                         alt="jquery-claypool" 
+                         title="This site uses jquery-claypool" 
+                         width="80" 
+                         height="15"
+                         style='float:left;'/>
+                    <em>
+                        © 2009-2010 MyProject
+                    </em>
+                    <img id="blueprint-logo" 
+                         src="/images/button.png"
+                         alt="blueprint" 
+                         title="This site uses blueprint-css" 
+                         width="80" 
+                         height="15"
+                         style='float:right;'/> 
+                </div>
+            </div>
+        </div>
+        
+	</body>
+</html>

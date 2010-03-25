@@ -1,0 +1,44 @@
+
+ /****************************
+ * 
+ * #admin forms
+ * 
+ * */
+
+body #main form{
+    text-align:right;
+}
+body #main form input{
+    background-color:#000;
+    color:#FFF;
+    margin:4px;
+    width: 500px;
+    border:none;
+}
+
+
+#main form label{
+    vertical-align:top;
+}
+
+#main form textarea{
+    background-color:#000;
+    color:#FFF;
+    margin:0;
+    border:none;
+    font-family:Verdana,Geneva,Arial,Helvetica,sans-serif;
+    font-size:12px;
+    height:auto;
+    width:500px
+}
+#main form textarea.description{
+    height:160px;
+}
+#main form textarea.notes{
+    height:110px;
+}
+
+#main form input.submit{
+    border: 1px dotted #fff;
+}
+

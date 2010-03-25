@@ -1,0 +1,252 @@
+body {
+    border: 1px #ffffff;
+    padding: 0;
+    background-color: #1a1a1a;
+    margin-top:1em;
+    margin-bottom:3em;
+    background-attachment:fixed;
+    font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color:#AAA;
+    /*background-image:url(../images/outterspacesymbols_backgrou.jpg);*/
+}
+body #main div input.addtocart{
+    border:medium none;
+    margin:auto 30px;
+    padding:6px;
+    width:80px;
+}
+body #main > div{
+    margin-left:30px;
+}
+body #main div input.submit{
+    border: 2px dotted #765;
+    width:128px;
+}
+body strong{
+    color:#EEE;
+    text-transform:uppercase;
+}
+body span{
+    color:#DDD;
+}
+body div{
+    background-color:#000;
+}
+.stclose{
+    background-color:transparent;
+}
+body a{
+    color:#EEE;
+    text-decoration:none;
+}
+body div.colborder{
+    border-right-color:#999;
+}
+body form input{
+   margin:1em;
+}
+h1, h2, h3, h4, h5, h6 {
+    color:#EEEEEE;
+    font-weight:normal;
+}
+h1, h2, h3{
+    margin:0 0 0 1em;
+    /*border-top:1px dotted #999999;*/
+}
+p{
+    color:#DDD;
+}
+
+a:focus, a:hover {
+    color:#567;
+}
+
+
+
+/*****************************/
+
+
+
+
+
+#header{
+    border-top:1px solid #777;
+    border-left:1px solid #777;
+    border-right:1px solid #777;
+}
+#header div {
+    margin-bottom:0px;
+    padding:1em;
+}
+#header a {
+    border:none;
+}
+
+
+/*****************************/
+
+
+#global-nav {
+    margin-top:50px;
+    margin-bottom:0px;
+}
+#global-nav ul{
+    float:right;
+    margin-bottom:0px;
+    margin-right:5px;
+}
+
+#global-nav ul li{
+    list-style:none;
+    display:inline;
+}
+#global-nav  a{
+    border-bottom:1px dotted #fff;
+}
+#global-nav  a.stbutton{
+    border:none;
+}
+#global-nav  a:hover{
+    color: #999;
+}
+
+
+/*****************************/
+
+
+#main{
+    border-left:1px solid #777;
+    border-right:1px solid #777;
+    height:450px;
+}
+#main h3{
+    background-color:#000;
+    padding:4px;
+    color:white;
+}
+#main p {
+    /*margin:1em;*/
+    padding:0 2em;
+}
+
+
+/****************************
+ * 
+ * #manage
+ * 
+ * */
+#manage ul {
+    list-style:none;
+    display:inline;
+}
+#manage ul li {
+    margin:1em;
+    padding:1px;
+}
+#manage div.first ul li {
+    text-align: right;
+}
+#manage div.last ul li {
+    text-align: left;
+}
+#manage ul li a{
+    text-decoration:none;
+}
+#manage textarea{
+    background-color:#000000;
+    border: none;
+    color:#FFF;
+    font-size:8px;
+    width:600px;
+    overflow:hidden;
+}
+
+
+
+
+/****************************
+ * 
+ * #items
+ * 
+ * */
+#items ul li{
+    list-style-type:none;
+}
+
+/****************************
+ * 
+ * #footer
+ * 
+ * */
+#footer {
+    text-align: right;
+} 
+#footer{
+    border-left:1px solid #777;
+    border-right:1px solid #777;
+    border-bottom:1px solid #777;
+}
+#footer div{
+    margin-top:0px;
+    padding:1em;
+}
+
+
+
+
+
+/****************************
+ * 
+ * #blueprintbutton
+ * 
+ * */
+#blueprintbutton {
+    /*float: right;
+    margin-top: 85px;
+    margin-right: 24px;
+    vertical-align: middle;*/
+   
+   position:relative;
+   bottom:0;
+   left:0;
+} 
+
+
+
+
+
+/****************************
+ * 
+ * #sharethisbutton
+ * 
+ * */
+#sharethisbutton {
+    /*float: left;
+    margin:0;
+    padding-top:70px;*/
+   position:relative;
+   bottom:0;
+   left:0;
+   margin:0;
+}
+#sharethisbutton a{
+    color:#FFF;
+    
+}
+
+
+/****************************
+ * 
+ * #copyright
+ * 
+ * */
+#copyright {
+    color:#AAA;
+    margin:0;
+}
+#copyright blockquote{
+    margin:0;
+    padding:0;
+}
+/*****************************/
+

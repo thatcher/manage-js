@@ -1,0 +1,144 @@
+h1. Manage: A Commandline/HTML Interface To jQuery-Claypool Projects on AppEngine
+
+Manage is an example project that demonstrates how simply and elegantly we can
+reuse jquery and jquery-claypool code that helps us manage our database backended
+projects from the browser and the command-line.  Much of the same code is used
+to drive the server-side application as well.
+
+h2. Running
+
+p. If you would like to develop locally you can get the google apps engine development
+environment (is really just jetty with a mini bigtable backend built in.)  The 
+appengine dev is here:
+
+"Google AppEngine SDK":http://googleappengine.googlecode.com/files/appengine-java-sdk-1.3.1.zip
+
+All you need to do is unzip it (we'll assume unix-like paths) and run:
+
+@$> /path/to/appengine/bin/dev_appserver.sh /path/to/manage-js/@
+
+At this point you should be able to open up a browser see
+
+"http://localhost:8080/":http://localhost:8080/
+
+h2. HTML Interface
+
+p. The html interface provides a small group of commands that let you round trip
+data from an inital_data.json file in you local development environment as well
+as browse and edit items in the current database. They two interfaces are not really
+dependent on each other, but are aptly named 'manage' and 'items'.
+
+h3. manage
+
+p. Django developers would be very familiar with the specific command names. Here's 
+the gist of the 'manage' interface:
+
+* help       -- displays this information
+* load       -- generates and saves items to database
+* dumpdata   -- provides a json dump of the current database
+* reset      -- removes all data from the database
+* syncdb     -- loads a previous state of the database from /data/inital_data.json
+
+h3. items
+
+p. The items interface will simply provide a large table of item links.  Each item
+link will bring you to a form, populated with the current state of the item, and 
+allow you to modify and save it.
+
+h2. Command Line Interface
+
+p. The command line interface is a developer friendly way of making the html interface
+available in a shell.  This is a very concise reuse of code which demonstrates 
+the elegance of jquery-claypool as a ultra light framework. At this point only the
+'manage' interface is available via the commandline, though the 'items' interface 
+is also very possible.
+
+h3. manage
+
+p. Manage is very simply used at the command line.  The general command line 
+pattern is.
+
+@$> /path/to/manage-js/manage.sh <command> [args]@
+
+p. Most commands dont require any args but when you use 'dumpdata' at the html 
+interface you wil be prompted to select a local file location to download it as 
+(/path/to/manage-js/data/initial_data.json is the convention to support syncdb). The
+same choice is true for 'dumpdata' at the command line so the dump file must be
+specified as an absolute url (include the file:// protocol).
+
+These should all work:
+
+@$> /path/to/manage-js/manage.sh help@
+@$> /path/to/manage-js/manage.sh load@
+@$> /path/to/manage-js/manage.sh dumpdata file:///path/to/manage-js/data/initial_data.json@
+@$> /path/to/manage-js/manage.sh reset@
+@$> /path/to/manage-js/manage.sh syncdb@
+
+h2. The Shell
+
+p. The shell is an explorative arena that loads all the prerequisites for you to 
+be able to play with the same environment available in the browser html interface.
+Also if you have to execute several cammands in succession it will be faster 
+because, at the command line, the browser page is loaded for each command, while
+the shell can execute multiple commands without reloading the page.
+
+In order to use it, you only need to execute 2 commands:
+
+@$> /path/to/manage-js/manage.sh shell@
+
+which will provide the following shell environment:
+
+@Entering interactive shell, please js> load('shell.js');@
+@Rhino 1.7 release 2 2009 03 22@
+@js>@ 
+
+Then just load the shell as suggested:
+
+@js> load('shell.js');@
+@[  Envjs/1.6 (Rhino; U; Mac OS X i386 10.5.8; en-US; rv:1.7.0.rc2) Resig/20070309 PilotFish/1.2.0.11  ]@
+@js>@
+
+The commands available in the shell require that you interact with the html 
+interface using javascript in order to produce the events that trigger the same
+event.
+
+@[  Envjs/1.6 (Rhino; U; Mac OS X i386 10.5.8; en-US; rv:1.7.0.rc2) Resig/20070309 PilotFish/1.2.0.11  ]@
+@js> var _ = MyProject.Commands;@
+@js> _.help();@
+@ INFO:   [Thu, 25 Mar 2010 03:01:26 GMT] {MyProject.Commands} help@
+@ INFO:   [Thu, 25 Mar 2010 03:01:26 GMT] {MyProject.Views.Manage}@ 
+@@
+@help       -- displays this information@
+@load       -- generates and saves items to database@
+@reset      -- removes all data from the database@
+@dumpdata   -- provides a json dump of the current database@
+@syncdb     -- loads a previous state of the database from /data/inital_data.json@
+@@
+@ INFO:   [Thu, 25 Mar 2010 03:01:26 GMT] {MyProject.Commands} complete@
+
+You can also try the other commands...
+
+@js>_.dumpdata('file:///path/to/manage-js/data/initial_data.json');@
+
+h2. Debugger  
+
+Of course the HTML Interface can be explored while in the browser with Firebug,
+but you can also use any of the commandline commands in the rhino debugger by
+adding the debug parameter.
+
+These should all work:
+
+@$> /path/to/manage-js/manage.sh debug help@
+@$> /path/to/manage-js/manage.sh debug load@
+@$> /path/to/manage-js/manage.sh debug dumpdata file:///path/to/manage-js/data/initial_data.json@
+@$> /path/to/manage-js/manage.sh debug reset@
+@$> /path/to/manage-js/manage.sh debug syncdb@
+
+
+At some point soon we will be integrating the the manage-js project with jquery-claypool
+directly, but believe its an interesting, and general enough idea to merit its 
+own project space for awhile.
+
+Enjoy!
+
+Thatcher
